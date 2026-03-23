@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "name": "costa-del-sol-healthcare",
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "regions": ["cdg"],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/hospital",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/clinic",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
